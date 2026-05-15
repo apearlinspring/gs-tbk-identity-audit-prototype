@@ -4,7 +4,7 @@
 
 ## 证据索引
 
-- `../interview/third-party-test-evidence.md`：基于外部第三方功能测试记录整理的公开口径索引；测试原件不复制进仓库，索引只保留页码级证据、测试项、简历支撑点和口径边界。
+- `../project-briefing/third-party-test-evidence.md`：基于外部第三方功能测试记录整理的公开口径索引；测试原件不复制进仓库，索引只保留页码级证据、测试项、项目支撑点和口径边界。
 - `runtime-summary.md`：当前运行证据摘要，包含阶段 3 Rust 全流程复现、阶段 3.1 编排脚本加固、阶段 3.2 合并前生产化 smoke 结果、runtime（运行时）配置隔离、role entrypoints（角色运行入口）和主线回归结果。
 - `failure-scenarios.md`：失败场景库，覆盖缺合约地址、缺证书、链不可达、端口占用、错误身份字段和重复注册，记录触发命令、预期失败点、错误分类和恢复建议。
 - `audit-query-demo.md`：链上审计查询 demo（演示），说明如何围绕 `PersonalInfo` / `Signature` 的 `select`、`selectWithBlockNumber`、TX（Transaction，交易）哈希和区块高度复核“用户 -> 合约记录 -> 区块高度/TX -> 历史查询”链路。

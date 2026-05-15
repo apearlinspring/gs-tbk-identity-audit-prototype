@@ -12,7 +12,7 @@
 - 将旧主线与参考材料从公开展示版中剥离，只保留当前 Rust（系统级编程语言）workspace（工作区）主线。
 - 将 `id_info_process` 与 `cl_encrypt` 纳入 `crates/`，补齐身份字段编码、CL 同态加密（Castagnos-Laguillaumie 同态加密）、ZKP（Zero-Knowledge Proof，零知识证明）生成和验证链路。
 - 将公开运行手册、安全边界和 VM（Virtual Machine，虚拟机）复核摘要收口到 `docs/operations/`。
-- 将可公开的第三方测试口径整理到 `docs/interview/third-party-test-evidence.md`，不提交测试原件。
+- 将可公开的第三方测试口径整理到 `docs/project-briefing/third-party-test-evidence.md`，不提交测试原件。
 - 将疑似真实身份样例从根目录移走，另在 `examples/id_info/` 添加干净的虚构示例。
 
 ## 当前主线
@@ -43,7 +43,7 @@
 
 - 项目已从“资料包集合”收口为 Rust + FISCO BCOS + Java SDK + Solidity（智能合约编程语言）+ 运行脚本 + 证据文档的一体化工程原型。
 - Rust 到链端 E2E 已完成生产化 smoke 验证：阶段 3.2 区块高度从 `30` 增至 `34`，`Signature` 与 `PersonalInfo` 均返回 `exists true`，4 个 Node 均完成 Verify/Open。
-- 简历表述可聚焦“Rust + FISCO BCOS + CL 身份字段加密/ZKP + 多节点 E2E + 链上审计”，但应明确它是可复现工程原型，不是完整生产系统。
+- 项目表述可聚焦“Rust + FISCO BCOS + CL 身份字段加密/ZKP + 多节点 E2E + 链上审计”，但应明确它是可复现工程原型，不是完整生产系统。
 
 ## 仍需补强
 

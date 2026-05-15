@@ -18,7 +18,7 @@
 - `apps/audit-console/`：只读 Web（网页）/API（Application Programming Interface，应用程序接口）审计控制台。
 - `scripts/`：本地运行、FISCO BCOS 运维和证据刷新脚本。
 - `examples/`：脱敏示例输入和审计事件样例。
-- `docs/`：架构、运行、证据摘要、演示、计划和面试口径文档。
+- `docs/`：架构、运行、证据摘要、演示、计划和项目展示口径文档。
 
 公开仓库不包含：
 
@@ -33,8 +33,8 @@
 - 运行说明：[docs/operations/README.md](docs/operations/README.md)
 - 审计控制台：[apps/audit-console/README.md](apps/audit-console/README.md)
 - 演示脚本：[docs/demo/audit-console-demo.md](docs/demo/audit-console-demo.md)
-- 面试讲解：[docs/interview/project-walkthrough.md](docs/interview/project-walkthrough.md)
-- 简历口径：[docs/interview/resume-bullets.md](docs/interview/resume-bullets.md)
+- 项目讲解：[docs/project-briefing/project-walkthrough.md](docs/project-briefing/project-walkthrough.md)
+- 项目定位：[docs/project-briefing/project-positioning.md](docs/project-briefing/project-positioning.md)
 
 ## 敏感边界
 

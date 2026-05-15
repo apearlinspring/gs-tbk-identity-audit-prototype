@@ -1,6 +1,6 @@
 # 文档索引
 
-本目录只保存公开展示版文档：架构、运行、证据摘要、演示脚本、计划和面试口径。不包含内部原始 PDF（Portable Document Format，便携式文档格式）、docx（Word 文档）、PPT（PowerPoint 演示文稿）、第三方测试原件、真实证书、私钥、wallet（钱包）、keystore（密钥库）或 `conf/config.toml`。
+本目录只保存公开展示版文档：架构、运行、证据摘要、演示脚本、计划和项目展示口径。不包含内部原始 PDF（Portable Document Format，便携式文档格式）、docx（Word 文档）、PPT（PowerPoint 演示文稿）、第三方测试原件、真实证书、私钥、wallet（钱包）、keystore（密钥库）或 `conf/config.toml`。
 
 ## 项目说明
 
@@ -39,11 +39,11 @@
 - `evidence/event-schema.md`：结构化 `events[]` 事件格式。
 - `evidence/failure-scenarios.md`：失败场景库。
 
-## 面试讲解
+## 项目讲解
 
-- `interview/project-walkthrough.md`：面向面试复盘和背诵的项目讲解包。
-- `interview/resume-bullets.md`：面向投递的简历 bullet（项目符号）版本。
-- `interview/third-party-test-evidence.md`：第三方功能测试记录的公开口径索引；不包含测试原件。
+- `project-briefing/project-walkthrough.md`：面向项目复盘和背诵的项目讲解包。
+- `project-briefing/project-positioning.md`：面向对外展示的项目表述版本。
+- `project-briefing/third-party-test-evidence.md`：第三方功能测试记录的公开口径索引；不包含测试原件。
 
 ## 计划文档
 

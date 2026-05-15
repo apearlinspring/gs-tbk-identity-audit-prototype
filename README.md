@@ -4,7 +4,11 @@
 
 本仓库是公开展示版：保留主线 Rust workspace（工作区）、contracts（合约源码）、Java SDK（Software Development Kit，软件开发工具包）调用层、只读审计控制台、运行脚本、示例数据和可公开的 Markdown（轻量标记语言）证据摘要；不包含内部原始压缩包、第三方测试原件、真实证书、私钥、wallet（钱包）、keystore（密钥库）、`conf/config.toml`、运行大日志或未脱敏输入。
 
-当前定位：本仓库是面向毕业设计、简历讲解和后续工程演进的可复现原型，不是完整生产系统。已经跑通 Rust + FISCO BCOS + CL（Castagnos-Laguillaumie，同态加密方案）身份字段加密/ZKP（Zero-Knowledge Proof，零知识证明）+ 多节点 E2E（End-to-End，端到端）+ 链上审计闭环；长期运行、自动部署和生产安全运维仍需单独建设。
+当前定位：本仓库是面向毕业设计、项目展示和后续工程演进的可复现原型，不是完整生产系统。已经跑通 Rust + FISCO BCOS + CL（Castagnos-Laguillaumie，同态加密方案）身份字段加密/ZKP（Zero-Knowledge Proof，零知识证明）+ 多节点 E2E（End-to-End，端到端）+ 链上审计闭环；长期运行、自动部署和生产安全运维仍需单独建设。
+
+## 审计台预览
+
+![GS-TBK 身份监管审计台](docs/assets/audit-console.png)
 
 ## 项目能力
 
@@ -147,13 +151,13 @@ bash scripts/run-local/run-id-info.sh enc
 ## 文档入口
 
 - [docs/README.md](docs/README.md)：文档总索引。
-- [docs/releases/v0.1-engineering-prototype.md](docs/releases/v0.1-engineering-prototype.md)：v0.1 工程原型发布说明、最短复现路径、验收 checklist（检查清单）和面试讲解口径。
+- [docs/releases/v0.1-engineering-prototype.md](docs/releases/v0.1-engineering-prototype.md)：v0.1 工程原型发布说明、最短复现路径、验收 checklist（检查清单）和项目讲解口径。
 - [docs/releases/v0.2-auditable-prototype.md](docs/releases/v0.2-auditable-prototype.md)：v0.2 可审计工程原型发布说明，覆盖失败场景、审计查询、恶意揭示和 JSON（JavaScript Object Notation，数据交换格式）摘要。
 - [docs/releases/v0.3-demo-console.md](docs/releases/v0.3-demo-console.md)：v0.3 演示控制台发布说明，覆盖只读 Web（网页）/API（Application Programming Interface，应用程序接口）审计控制台、`events[]` 事件样例和 AI（Artificial Intelligence，人工智能）安全桥接。
 - [apps/audit-console/README.md](apps/audit-console/README.md)：只读审计控制台说明，最短演示路径为 `npm run check`、`npm start`、`http://127.0.0.1:4173` 和 VM 演示数据刷新命令。
 - [docs/demo/audit-console-demo.md](docs/demo/audit-console-demo.md)：身份监管审计台现场演示 Runbook（运行手册），覆盖公网展示、VM（Virtual Machine，虚拟机）内网展示、DNS（Domain Name System，域名系统）注意事项和讲解顺序。
-- [docs/interview/project-walkthrough.md](docs/interview/project-walkthrough.md)：面试讲解包，覆盖展示入口、2 分钟概述、5 分钟技术结构、深挖问答和边界。
-- [docs/interview/resume-bullets.md](docs/interview/resume-bullets.md)：AI 应用开发和 AI 安全两套简历 bullet（项目符号）与不能写的夸大表述。
+- [docs/project-briefing/project-walkthrough.md](docs/project-briefing/project-walkthrough.md)：项目讲解包，覆盖展示入口、2 分钟概述、5 分钟技术结构、深挖问答和边界。
+- [docs/project-briefing/project-positioning.md](docs/project-briefing/project-positioning.md)：AI 应用开发和 AI 安全两套项目表述与不能写的夸大表述。
 - [docs/architecture.md](docs/architecture.md)：系统角色、链端集成和数据流。
 - [docs/operations/README.md](docs/operations/README.md)：本地/VM 运行路径和启动顺序。
 - [scripts/run-local/README.md](scripts/run-local/README.md)：脚本参数和调用方式。

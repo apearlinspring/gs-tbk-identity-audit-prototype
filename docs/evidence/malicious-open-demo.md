@@ -1,6 +1,6 @@
 # 恶意用户 Verify（验证）/Open（揭示） demo（演示）
 
-本文对应 `feat/malicious-open-demo`，目标是把现有 Verify/Open 流程整理成面试可讲、证据可查的恶意用户揭示链路。本文只复用现有 E2E（End-to-End，端到端）报告、角色入口、链上记录和可读取日志，不修改 GS-TBK（Group Signatures with Time-bound Keys，带时间绑定密钥的群签名方案）密码学协议，不提交真实证书、私钥、账户、wallet（钱包）、keystore（密钥库）、`conf/config.toml` 或 runtime（运行时）状态。
+本文对应 `feat/malicious-open-demo`，目标是把现有 Verify/Open 流程整理成项目展示可讲、证据可查的恶意用户揭示链路。本文只复用现有 E2E（End-to-End，端到端）报告、角色入口、链上记录和可读取日志，不修改 GS-TBK（Group Signatures with Time-bound Keys，带时间绑定密钥的群签名方案）密码学协议，不提交真实证书、私钥、账户、wallet（钱包）、keystore（密钥库）、`conf/config.toml` 或 runtime（运行时）状态。
 
 ## 一句话链路
 
@@ -98,7 +98,7 @@ bash scripts/evidence/run-malicious-open-demo.sh \
 - `Signature` / `PersonalInfo` 的 TX 哈希、区块、`ret`、`select exists` 和身份密文 SHA-256。
 - 每个 Node 日志里的 `Signature query`、Verify 结果、Open 状态和揭示摘录。
 
-## 面试讲解口径
+## 项目讲解口径
 
 可以按三段讲：
 

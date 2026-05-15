@@ -4,15 +4,15 @@
 
 截至 2026-05-13，当前项目已经可以定位为：
 
-> 可复现、可审计、可面试讲解的分布式身份监管工程原型。
+> 可复现、可审计、可项目讲解的分布式身份监管工程原型。
 
-它已经不是“资料包”或“玩具 demo（演示工程）”。项目已完成 Rust（系统级编程语言）协议流程、FISCO BCOS（金融区块链合作联盟开源区块链底层平台）链端合约、Java SDK（Software Development Kit，软件开发工具包）调用层、身份字段 CL 同态加密（Castagnos-Laguillaumie 同态加密）/ZKP（Zero-Knowledge Proof，零知识证明）、多角色 E2E（End-to-End，端到端）验证、runtime（运行时）配置隔离、CI（Continuous Integration，持续集成）强门禁、本地 service supervisor（服务管理器）、真实 VM（Virtual Machine，虚拟机）证据、失败场景库、审计查询、恶意用户 Verify/Open（验证/揭示）、JSON（JavaScript Object Notation，数据交换格式）摘要和面试讲解包。
+它已经不是“资料包”或“玩具 demo（演示工程）”。项目已完成 Rust（系统级编程语言）协议流程、FISCO BCOS（金融区块链合作联盟开源区块链底层平台）链端合约、Java SDK（Software Development Kit，软件开发工具包）调用层、身份字段 CL 同态加密（Castagnos-Laguillaumie 同态加密）/ZKP（Zero-Knowledge Proof，零知识证明）、多角色 E2E（End-to-End，端到端）验证、runtime（运行时）配置隔离、CI（Continuous Integration，持续集成）强门禁、本地 service supervisor（服务管理器）、真实 VM（Virtual Machine，虚拟机）证据、失败场景库、审计查询、恶意用户 Verify/Open（验证/揭示）、JSON（JavaScript Object Notation，数据交换格式）摘要和项目讲解包。
 
 但它还不能表述为“可上线生产系统”。生产系统还需要长期运行、监控告警、安全配置、错误恢复、部署自动化、权限隔离、多环境发布和运维治理等能力。后续优化应围绕“可复现、可运维、可审计、可交接”继续推进，而不是优先堆新功能。
 
-当前可支撑简历表述：
+当前可支撑项目表述：
 
-> 基于 Rust + FISCO BCOS 的分布式身份监管工程原型，完成身份字段 CL 同态加密/ZKP、用户签名与身份密文上链、1 Proxy（代理）+ 4 Node（管理员节点）+ 2 User（用户）多节点 E2E、链上审计查询、异常签名 Verify/Open 和生产化 smoke 验证；对项目进行工程化改造，补齐服务化运行、自动化验证、失败场景库、JSON 摘要和面试讲解材料，使系统具备可复现、可审计、可交接能力。
+> 基于 Rust + FISCO BCOS 的分布式身份监管工程原型，完成身份字段 CL 同态加密/ZKP、用户签名与身份密文上链、1 Proxy（代理）+ 4 Node（管理员节点）+ 2 User（用户）多节点 E2E、链上审计查询、异常签名 Verify/Open 和生产化 smoke 验证；对项目进行工程化改造，补齐服务化运行、自动化验证、失败场景库、JSON 摘要和项目讲解材料，使系统具备可复现、可审计、可交接能力。
 
 ## 完成度总览
 
@@ -35,7 +35,7 @@
 | 审计查询 | 已完成基础版 | `docs/evidence/audit-query-demo.md`、`docs/evidence/audit-query-live-vm-20260512T153825Z.md`、`docs/evidence/audit-query-live-vm-20260512T153825Z.json` |
 | 恶意用户揭示 | 已完成基础版 | `docs/evidence/malicious-open-demo.md`、`docs/evidence/malicious-open-live-vm-20260512T200205Z.md` |
 | JSON 证据摘要 | 已完成基础版 | `docs/evidence/audit-query-live-vm-20260512T153825Z.json`、`docs/evidence/malicious-open-live-vm-20260512T153825Z.json` |
-| 面试讲解包 | 已完成基础版 | `docs/interview/project-walkthrough.md` |
+| 项目讲解包 | 已完成基础版 | `docs/project-briefing/project-walkthrough.md` |
 | 功能层增强 | 下一阶段 | Web（网页）/API（Application Programming Interface，应用程序接口）展示、Open 揭示日志增强、AI（Artificial Intelligence，人工智能）安全衔接、生产级运维 |
 
 ## 已完成阶段
@@ -159,7 +159,7 @@
 - 更新 `.gitignore` 与 Java SDK 局部 `.gitignore`，显式覆盖 wallet（钱包）、keystore（密钥库）、账户、证书、生成配置和运行材料。
 - 将 `examples/id-info/user1.json` 与 `user2.json` 改为更明确的脱敏测试字段。
 - CI 新增 ShellCheck（Shell 脚本静态检查器）门禁，并修复当前脚本暴露的问题。
-- 新增 `docs/releases/v0.1-engineering-prototype.md` 和 `docs/releases/README.md`，沉淀最短复现路径、验收 checklist（检查清单）、版本说明、已知限制和面试讲解口径。
+- 新增 `docs/releases/v0.1-engineering-prototype.md` 和 `docs/releases/README.md`，沉淀最短复现路径、验收 checklist（检查清单）、版本说明、已知限制和项目讲解口径。
 
 验收证据：
 
@@ -172,7 +172,7 @@
 
 ## 综合后续路线
 
-本节综合当前主线实际状态、上一轮任务编排和新的优化建议。服务化运行、CI 基础强门禁、Rust build（构建）门禁、FISCO 运维脚本、runtime 配置隔离、安全配置治理、发布复现包、部署自动化入口、合约/wrapper（一种包装类）一致性检查、真实 VM E2E 自动报告、失败场景库、审计查询/历史查询、恶意用户揭示 demo、JSON 摘要和面试讲解包都已经完成。下一阶段重点转为：展示层、结构化揭示日志、AI（Artificial Intelligence，人工智能）安全衔接和生产级运维。
+本节综合当前主线实际状态、上一轮任务编排和新的优化建议。服务化运行、CI 基础强门禁、Rust build（构建）门禁、FISCO 运维脚本、runtime 配置隔离、安全配置治理、发布复现包、部署自动化入口、合约/wrapper（一种包装类）一致性检查、真实 VM E2E 自动报告、失败场景库、审计查询/历史查询、恶意用户揭示 demo、JSON 摘要和项目讲解包都已经完成。下一阶段重点转为：展示层、结构化揭示日志、AI（Artificial Intelligence，人工智能）安全衔接和生产级运维。
 
 ### 1. 服务化运行
 
@@ -241,7 +241,7 @@ start / stop / status / restart / tail
 
 后续建议：
 
-- v0.2 release（发布）文档已新增，覆盖失败场景、审计查询、恶意揭示、真实 VM 证据、JSON 摘要和面试讲解包。
+- v0.2 release（发布）文档已新增，覆盖失败场景、审计查询、恶意揭示、真实 VM 证据、JSON 摘要和项目讲解包。
 - 后续 release 文档应随新的展示层、E2E 报告和生产级运维能力同步更新。
 - 若打新 tag，应新增对应 `docs/releases/` 文档，而不是覆盖 v0.1。
 
@@ -282,7 +282,7 @@ start / stop / status / restart / tail
 
 ### 7. 功能层增强
 
-当前状态：基础版已完成。工程底座已经有真实 VM E2E 证据、失败场景库、审计查询、恶意揭示和面试讲解包，下一步适合把这些能力产品化展示或结构化增强，而不是继续把已完成 demo 当作待办。
+当前状态：基础版已完成。工程底座已经有真实 VM E2E 证据、失败场景库、审计查询、恶意揭示和项目讲解包，下一步适合把这些能力产品化展示或结构化增强，而不是继续把已完成 demo 当作待办。
 
 已完成：
 
@@ -290,7 +290,7 @@ start / stop / status / restart / tail
 - `scripts/evidence/run-audit-query-demo.sh` 与真实 VM 报告：按用户、合约、TX 哈希和区块高度复核当前查询与历史查询。
 - `scripts/evidence/run-malicious-open-demo.sh` 与真实 VM 报告：记录 `user1 -> sign_wrong`、Verify 失败触发 Open、`user_id/user_name/address` 揭示字段和 `user2` 正常对照。
 - JSON 摘要输出和轻量自测：面向后续 Web/API 展示和 AI 安全审计材料复用。
-- `docs/interview/project-walkthrough.md`：把当前证据整理为面试可讲口径。
+- `docs/project-briefing/project-walkthrough.md`：把当前证据整理为项目展示可讲口径。
 
 后续可选方向：
 
@@ -305,7 +305,7 @@ start / stop / status / restart / tail
 
 ## 推荐任务优先级
 
-短期优先级建议如下。当前工程底座已经能支撑“可复现、可审计、可面试讲解的工程原型”，下一轮应把系统从“证据可查、材料可讲”推进到“展示更直观、日志更结构化、运维更接近生产”。
+短期优先级建议如下。当前工程底座已经能支撑“可复现、可审计、可项目讲解的工程原型”，下一轮应把系统从“证据可查、材料可讲”推进到“展示更直观、日志更结构化、运维更接近生产”。
 
 ```text
 web-api-audit-console
@@ -329,7 +329,7 @@ web-api-audit-console
 3. `feat/ai-security-audit-bridge`
    - 将匿名使用、行为留痕、异常追责抽象为 AI 安全讲解材料或小型 demo。
    - 重点连接智能体工具调用、模型服务敏感操作审计和异常行为追责。
-   - 作为毕设或面试方向补充，不改当前密码学主线。
+   - 作为毕设或项目展示方向补充，不改当前密码学主线。
 
 4. `feat/production-ops-hardening`
    - 推进 systemd/容器化、多环境配置分层、监控告警、证书轮换和最小权限策略。

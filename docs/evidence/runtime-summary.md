@@ -291,6 +291,6 @@
 | 缺少 User 身份字段输入样例 | 夹具问题 | 阶段 3.2 在渲染配置和启动角色前失败，manifest `success false`，错误指向缺失文件 |
 | Gradle wrapper 联网下载超时 | VM 网络/离线依赖问题 | 阶段 3.8 首次 bootstrap 未设置 `GRADLE_BIN`，doctor 阶段 Java SDK `blockNumber` 因下载 `gradle-8.10.2-bin.zip` 超时失败；使用 `GRADLE_BIN=/tmp/gradle-8.10.2/bin/gradle` 复跑通过 |
 
-## 简历可支撑点
+## 项目材料可支撑点
 
 本次记录可支撑“多节点集成测试和全流程验证”：在 Ubuntu VM 上完成 Rust 身份字段 CL 加密/ZKP 证明、Java SDK/FISCO BCOS 合约写入查询、1 Proxy + 4 Node + 2 User 多角色协同、签名上链、身份密文上链、Node 查询签名并执行 Open 揭示流程。
