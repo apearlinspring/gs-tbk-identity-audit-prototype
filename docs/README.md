@@ -26,6 +26,7 @@
 - `demo/README.md`：演示文档索引。
 - `demo/audit-console-demo.md`：身份监管审计台现场演示脚本，覆盖项目快照、结构化事件、交易区块和验证揭示。
 - `../apps/audit-console/README.md`：只读 Web（网页）/API（Application Programming Interface，应用程序接口）审计控制台说明。
+- `../scripts/deploy/README.md`：审计控制台展示代码同步脚本说明。
 
 ## 测试证据
 

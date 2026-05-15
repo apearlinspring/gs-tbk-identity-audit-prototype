@@ -101,3 +101,14 @@ bash scripts/evidence/refresh-audit-console-evidence.sh \
   --dry-run-audit \
   --no-check
 ```
+
+## 部署同步
+
+从本地 Windows（微软操作系统）同步展示代码到服务器时，使用根目录脚本：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/deploy/deploy-audit-console.ps1 -Target public
+powershell -ExecutionPolicy Bypass -File scripts/deploy/deploy-audit-console.ps1 -Target vm
+```
+
+该脚本会打包当前 Git（分布式版本控制系统）提交，上传到服务器，保留上一版备份，重启 `gstbk-audit-console` 服务，并检查 `/api/health`。完整说明见 [scripts/deploy/README.md](../../scripts/deploy/README.md)。

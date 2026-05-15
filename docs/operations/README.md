@@ -218,6 +218,23 @@ bash scripts/evidence/refresh-audit-console-evidence.sh \
 
 公网展示站不建议提供“点击按钮启动 E2E”的功能。需要演示动态流程时，推荐在 SSH（Secure Shell，安全外壳协议）终端运行 E2E 和刷新脚本，浏览器只负责展示刷新后的脱敏审计证据。
 
+## 审计控制台代码同步
+
+只读审计控制台的展示代码可以从本地 Windows（微软操作系统）工作站同步到公网服务器或 VM（Virtual Machine，虚拟机）。推荐使用：
+
+```powershell
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+git status
+git pull --ff-only
+
+powershell -ExecutionPolicy Bypass -File scripts/deploy/deploy-audit-console.ps1 -Target public
+powershell -ExecutionPolicy Bypass -File scripts/deploy/deploy-audit-console.ps1 -Target vm
+```
+
+该脚本会用 `git archive HEAD` 打包当前提交，通过 scp（Secure Copy Protocol，安全复制协议）上传，远端预检查 `node apps/audit-console/server.mjs --check`，替换 `/opt/gs-tbk-audit-console`，重启 `gstbk-audit-console` systemd（Linux 系统服务管理器）服务，并请求 `/api/health`。详细参数、预设目标和回滚方式见 [部署脚本](../../scripts/deploy/README.md)。
+
+注意：脚本只同步代码和已提交的公开 evidence JSON（JavaScript Object Notation，数据交换格式）摘要；不上传真实证书、私钥、wallet（钱包）、keystore（密钥库）、`conf/config.toml` 或运行大日志。若需要刷新某次 E2E（End-to-End，端到端）结果，先用上一节的 `refresh-audit-console-evidence.sh` 安装当前证据，再执行部署同步或在对应服务器上重启服务。
+
 ## 本地服务管理
 
 阶段 3.6 起，优先使用 `gstbk-service.sh` 管理本地多角色进程。该脚本负责生成 runtime config（运行时配置）、保存 PID（Process Identifier，进程标识符）、写入 runtime logs（运行时日志）和 runtime state（运行时状态），并按 Proxy（代理）到 Node（管理员节点）再到 User（用户）的顺序调用正式 bin（二进制入口）。

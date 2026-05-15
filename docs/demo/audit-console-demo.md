@@ -52,6 +52,24 @@ ssh gstbk-vm 'curl -sS http://127.0.0.1:4173/api/health'
 curl http://192.168.1.24/api/health
 ```
 
+## 同步展示代码
+
+每次公开仓库更新后，可以从 Windows（微软操作系统）本地工作站把最新提交同步到展示服务器：
+
+```powershell
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+cd D:\Users\Administrator\PycharmProjects\gs-tbk-identity-audit-prototype
+git status
+git pull --ff-only
+
+powershell -ExecutionPolicy Bypass -File scripts/deploy/deploy-audit-console.ps1 -Target public
+powershell -ExecutionPolicy Bypass -File scripts/deploy/deploy-audit-console.ps1 -Target vm
+```
+
+脚本流程是：本地 `git archive HEAD` 打包、scp（Secure Copy Protocol，安全复制协议）上传、远端 `server.mjs --check` 预检查、备份旧 `/opt/gs-tbk-audit-console`、替换新版本、重启 `gstbk-audit-console` 服务、检查 `/api/health`。完整参数和回滚方式见 [部署脚本](../../scripts/deploy/README.md)。
+
+公网服务器的 HTTPS（HyperText Transfer Protocol Secure，安全超文本传输协议）入口由宝塔 Nginx（Web 服务器）托管；如果系统自带 `nginx.service` 显示 failed，但 `https://gstbk.403edr.cn/` 能访问且宝塔 Nginx 配置检查通过，可以按宝塔入口判断公网展示状态。
+
 ## 1 分钟演示顺序
 
 1. 打开 `http://vm-gstbk.403edr.cn/`、`http://192.168.1.24/` 或 `https://gstbk.403edr.cn/`。
