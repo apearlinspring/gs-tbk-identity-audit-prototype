@@ -9,7 +9,7 @@
   <body>
     <header class="topbar">
       <div>
-        <p class="eyebrow">工程原型演示</p>
+        <p class="eyebrow">链上身份监管 / 审计视图</p>
         <h1>GS-TBK 身份监管审计台</h1>
       </div>
       <div class="top-actions">
@@ -21,13 +21,25 @@
     <main class="workspace">
       <aside class="sidebar">
         <section class="panel">
-          <h2>演示说明</h2>
-          <ul class="policy-list">
-            <li>展示已脱敏的身份监管流程证据</li>
-            <li>覆盖身份登记、链上查询、验证和揭示</li>
-            <li>当前站点使用审计证据快照，不直连链节点</li>
-            <li>页面不展示证书、私钥、节点配置或原始日志</li>
-          </ul>
+          <h2>项目快照</h2>
+          <div class="snapshot-grid">
+            <div>
+              <span>拓扑</span>
+              <strong>1 Proxy / 4 Node / 2 User</strong>
+            </div>
+            <div>
+              <span>合约</span>
+              <strong>Signature + PersonalInfo</strong>
+            </div>
+            <div>
+              <span>流程</span>
+              <strong>KeyGen · Sign · Verify/Open</strong>
+            </div>
+            <div>
+              <span>证据</span>
+              <strong>交易 · 区块 · 揭示字段</strong>
+            </div>
+          </div>
         </section>
 
         <section class="panel">

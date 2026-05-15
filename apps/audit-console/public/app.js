@@ -286,11 +286,11 @@ function renderAll() {
 
   const hasErrors = data.load_errors.length > 0;
   $("#healthBadge").className = `badge ${hasErrors ? "danger" : "ok"}`;
-  $("#healthBadge").textContent = hasErrors ? "加载异常" : "演示就绪";
+  $("#healthBadge").textContent = hasErrors ? "加载异常" : "数据已同步";
   $("#statusBanner").className = `notice ${hasErrors ? "error" : "ok"}`;
   $("#statusBanner").textContent = hasErrors
     ? `发现 ${data.load_errors.length} 个证据文件异常，已跳过异常来源。`
-    : `已加载 ${data.stats.source_count} 个证据批次，覆盖 ${data.stats.structured_event_count} 个结构化审计事件。更新时间 ${data.generated_at}`;
+    : `当前批次包含 ${data.stats.source_count} 组证据、${data.stats.tx_count} 笔链上交易、${data.stats.verify_open_count} 条验证/揭示记录。更新时间 ${data.generated_at}`;
 
   renderMetrics(data);
   renderSources(data);

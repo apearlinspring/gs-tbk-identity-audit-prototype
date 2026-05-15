@@ -140,12 +140,30 @@ button:hover {
   color: var(--danger);
 }
 
-.policy-list {
+.snapshot-grid {
   display: grid;
-  gap: 8px;
+  gap: 9px;
   margin: 10px 0 0;
-  padding-left: 18px;
+}
+
+.snapshot-grid div {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel-subtle);
+  padding: 9px;
+}
+
+.snapshot-grid span {
+  display: block;
   color: var(--muted);
+  font-size: 12px;
+}
+
+.snapshot-grid strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.35;
 }
 
 label {

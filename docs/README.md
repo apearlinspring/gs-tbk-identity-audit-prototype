@@ -8,7 +8,6 @@
 - `project-summary.md`：工程化整理记录，说明主线代码、身份字段模块、链端调用和证据材料的收口过程。
 - `ai-security-bridge.md`：说明当前分布式身份监管项目如何自然衔接 AI（Artificial Intelligence，人工智能）安全方向。
 - `ci.md`：CI（Continuous Integration，持续集成）基础检查范围和后续启用条件。
-- `overview.md`：原始项目概述，保留历史表述；其中部分旧路径不代表当前公开仓库结构。
 
 ## 发布与复现
 
@@ -25,7 +24,7 @@
 - `operations/service-supervision.md`：本地服务管理说明。
 - `operations/vm-access.md`：VM（Virtual Machine，虚拟机）路径与复核命令摘要。
 - `demo/README.md`：演示文档索引。
-- `demo/audit-console-demo.md`：身份监管审计台现场演示脚本。
+- `demo/audit-console-demo.md`：身份监管审计台现场演示脚本，覆盖项目快照、结构化事件、交易区块和验证揭示。
 - `../apps/audit-console/README.md`：只读 Web（网页）/API（Application Programming Interface，应用程序接口）审计控制台说明。
 
 ## 测试证据
