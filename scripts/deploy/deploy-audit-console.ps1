@@ -126,7 +126,7 @@ trap rollback ERR
 [ -f "$tarball" ]
 rm -rf "$tmp"
 mkdir -p "$tmp"
-tar -xzf "$tarball" -C "$tmp"
+tar --warning=no-timestamp -xzf "$tarball" -C "$tmp"
 printf "%s\n" "$commit" > "$tmp/DEPLOYED_COMMIT"
 
 "$node_bin" "$tmp/apps/audit-console/server.mjs" --check >/tmp/gstbk-audit-console-precheck-${stamp}.json
