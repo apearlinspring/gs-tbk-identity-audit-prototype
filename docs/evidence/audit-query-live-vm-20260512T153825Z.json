@@ -1,0 +1,291 @@
+{
+  "generated_at": "2026-05-12T19:56:45Z",
+  "manifest": {
+    "path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/manifest.json",
+    "sha256": "f607dc5929f0bc293ccab614b5a55f506caaa1f14e00a95ee284d9a3a2828db3",
+    "success": true,
+    "command": "/tmp/gstbk-vm-bootstrap-e2e-report-verify/scripts/run-local/run-e2e.sh --users 2 --nodes 4 --runtime-dir /tmp/gstbk-e2e-vm-smoke --reuse-chain --contract-addresses-from-env --timeout-seconds 300",
+    "runtime_log_dir": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z"
+  },
+  "output_dir": "/tmp/gstbk-live-audit-query-20260512T153825Z",
+  "markdown_summary": "/tmp/gstbk-live-audit-query-20260512T153825Z/audit-query-summary.md",
+  "json_summary": "/tmp/gstbk-live-audit-query-20260512T153825Z/audit-query-summary.json",
+  "success": true,
+  "users": [
+    {
+      "manifest_key": "user1",
+      "user_name": "e2e20260512T153825Z_user1"
+    },
+    {
+      "manifest_key": "user2",
+      "user_name": "e2e20260512T153825Z_user2"
+    }
+  ],
+  "contract_addresses": {
+    "signature": "0xcceef68c9b4811b32c75df284a1396c7c5509561",
+    "personal_info": "0x6546c3571f17858ea45575e7c6457dad03e53dbb"
+  },
+  "tx_hashes": {
+    "user1": {
+      "signature": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+      "personal_info": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907"
+    },
+    "user2": {
+      "signature": "0xfceab5a2c4927e908499d4a517f6c5d1fe9c3f62d2bb3c6c9e3e81d19169ff23",
+      "personal_info": "0x9b52c5c553b00196223b36ea70fb9b9c5d583ec1053d24e60ea2b87da4dcacd9"
+    }
+  },
+  "block_numbers": {
+    "user1": {
+      "signature": "51",
+      "personal_info": "53"
+    },
+    "user2": {
+      "signature": "52",
+      "personal_info": "54"
+    }
+  },
+  "query_results": [
+    {
+      "manifest_user": "user1",
+      "user": "e2e20260512T153825Z_user1",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+      "block_number": "51",
+      "query": "select",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/signature_run.sh select 0xcceef68c9b4811b32c75df284a1396c7c5509561 e2e20260512T153825Z_user1",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-select.out",
+      "output_sha256": "9cedc46f02b647bb55dd82aa890ec37d2f1296aebf3075dd486bde86818a02e0",
+      "status": "ok",
+      "returncode": 0,
+      "exists": "true",
+      "ret": null,
+      "value_present": true,
+      "result": "exists true; signature present"
+    },
+    {
+      "manifest_user": "user1",
+      "user": "e2e20260512T153825Z_user1",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+      "block_number": "51",
+      "query": "history@block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/signature_run.sh history 0xcceef68c9b4811b32c75df284a1396c7c5509561 e2e20260512T153825Z_user1 51",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-history-block-51.out",
+      "output_sha256": "4b3861c31e1161ed7ef79c057b38a20033109a861ad1d7c7bb4fa01dbb5d26de",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "0",
+      "value_present": true,
+      "result": "ret 0; signature present"
+    },
+    {
+      "manifest_user": "user1",
+      "user": "e2e20260512T153825Z_user1",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+      "block_number": "51",
+      "query": "history@previous-block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/signature_run.sh history 0xcceef68c9b4811b32c75df284a1396c7c5509561 e2e20260512T153825Z_user1 50",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-history-block-50.out",
+      "output_sha256": "90281582267f4b7cb0df8e04355658e5e6970828a0f247f8ebedc9a68e83c44f",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "-2",
+      "value_present": false,
+      "result": "ret -2; signature absent"
+    },
+    {
+      "manifest_user": "user1",
+      "user": "e2e20260512T153825Z_user1",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907",
+      "block_number": "53",
+      "query": "select",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/info_run.sh select 0x6546c3571f17858ea45575e7c6457dad03e53dbb e2e20260512T153825Z_user1",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-personal-info-select.out",
+      "output_sha256": "3909269f93e10c9433327f3528710cc0caa2cf2c9c6aad65a765faeb8048528a",
+      "status": "ok",
+      "returncode": 0,
+      "exists": "true",
+      "ret": null,
+      "value_present": true,
+      "result": "exists true; info present"
+    },
+    {
+      "manifest_user": "user1",
+      "user": "e2e20260512T153825Z_user1",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907",
+      "block_number": "53",
+      "query": "history@block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/info_run.sh history 0x6546c3571f17858ea45575e7c6457dad03e53dbb e2e20260512T153825Z_user1 53",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-personal-info-history-block-53.out",
+      "output_sha256": "273f6f203ce80cfad045c0910a328613d7a9ab08e4c5b9db403d8efef4c8fbbd",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "0",
+      "value_present": true,
+      "result": "ret 0; info present"
+    },
+    {
+      "manifest_user": "user1",
+      "user": "e2e20260512T153825Z_user1",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907",
+      "block_number": "53",
+      "query": "history@previous-block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/info_run.sh history 0x6546c3571f17858ea45575e7c6457dad03e53dbb e2e20260512T153825Z_user1 52",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-personal-info-history-block-52.out",
+      "output_sha256": "6655c48664f6343bcf404a8383d12360b2d20fc6aafb5e90527551d5cb8012bd",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "-2",
+      "value_present": false,
+      "result": "ret -2; info absent"
+    },
+    {
+      "manifest_user": "user2",
+      "user": "e2e20260512T153825Z_user2",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0xfceab5a2c4927e908499d4a517f6c5d1fe9c3f62d2bb3c6c9e3e81d19169ff23",
+      "block_number": "52",
+      "query": "select",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/signature_run.sh select 0xcceef68c9b4811b32c75df284a1396c7c5509561 e2e20260512T153825Z_user2",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-signature-select.out",
+      "output_sha256": "bdb029094f004f4d132fac756ba9a96f266a4df510f5919ca05295e7d9ba7efc",
+      "status": "ok",
+      "returncode": 0,
+      "exists": "true",
+      "ret": null,
+      "value_present": true,
+      "result": "exists true; signature present"
+    },
+    {
+      "manifest_user": "user2",
+      "user": "e2e20260512T153825Z_user2",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0xfceab5a2c4927e908499d4a517f6c5d1fe9c3f62d2bb3c6c9e3e81d19169ff23",
+      "block_number": "52",
+      "query": "history@block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/signature_run.sh history 0xcceef68c9b4811b32c75df284a1396c7c5509561 e2e20260512T153825Z_user2 52",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-signature-history-block-52.out",
+      "output_sha256": "28058fa9ddb4ca727e23367b1a9754a099204aba5222a70cfb898e76e874ccb6",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "0",
+      "value_present": true,
+      "result": "ret 0; signature present"
+    },
+    {
+      "manifest_user": "user2",
+      "user": "e2e20260512T153825Z_user2",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0xfceab5a2c4927e908499d4a517f6c5d1fe9c3f62d2bb3c6c9e3e81d19169ff23",
+      "block_number": "52",
+      "query": "history@previous-block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/signature_run.sh history 0xcceef68c9b4811b32c75df284a1396c7c5509561 e2e20260512T153825Z_user2 51",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-signature-history-block-51.out",
+      "output_sha256": "90281582267f4b7cb0df8e04355658e5e6970828a0f247f8ebedc9a68e83c44f",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "-2",
+      "value_present": false,
+      "result": "ret -2; signature absent"
+    },
+    {
+      "manifest_user": "user2",
+      "user": "e2e20260512T153825Z_user2",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0x9b52c5c553b00196223b36ea70fb9b9c5d583ec1053d24e60ea2b87da4dcacd9",
+      "block_number": "54",
+      "query": "select",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/info_run.sh select 0x6546c3571f17858ea45575e7c6457dad03e53dbb e2e20260512T153825Z_user2",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-personal-info-select.out",
+      "output_sha256": "b28c8040e81166e9bb3722f2430f9ffefb6be0c201ca1c44b7c16fdbb04ece64",
+      "status": "ok",
+      "returncode": 0,
+      "exists": "true",
+      "ret": null,
+      "value_present": true,
+      "result": "exists true; info present"
+    },
+    {
+      "manifest_user": "user2",
+      "user": "e2e20260512T153825Z_user2",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0x9b52c5c553b00196223b36ea70fb9b9c5d583ec1053d24e60ea2b87da4dcacd9",
+      "block_number": "54",
+      "query": "history@block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/info_run.sh history 0x6546c3571f17858ea45575e7c6457dad03e53dbb e2e20260512T153825Z_user2 54",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-personal-info-history-block-54.out",
+      "output_sha256": "daf1548815b037494cc1be4aee8f0de79684511ad8d3d12e52a69149716fb8d2",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "0",
+      "value_present": true,
+      "result": "ret 0; info present"
+    },
+    {
+      "manifest_user": "user2",
+      "user": "e2e20260512T153825Z_user2",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0x9b52c5c553b00196223b36ea70fb9b9c5d583ec1053d24e60ea2b87da4dcacd9",
+      "block_number": "54",
+      "query": "history@previous-block",
+      "command": "bash chain-apps/fisco-bcos-java-sdk/info_run.sh history 0x6546c3571f17858ea45575e7c6457dad03e53dbb e2e20260512T153825Z_user2 53",
+      "output": "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-personal-info-history-block-53.out",
+      "output_sha256": "6655c48664f6343bcf404a8383d12360b2d20fc6aafb5e90527551d5cb8012bd",
+      "status": "ok",
+      "returncode": 0,
+      "exists": null,
+      "ret": "-2",
+      "value_present": false,
+      "result": "ret -2; info absent"
+    }
+  ],
+  "verify_open_status": {
+    "status": "not_applicable",
+    "reason": "run-audit-query-demo.sh 只执行链上只读查询，不判定 Verify/Open（验证/揭示）流程。"
+  },
+  "log_sha256": {
+    "markdown_summary": "57586af27a5a85e6d465560e955b97b98f1baed1f02cb7fc395037b7e6e4a4dd",
+    "query_outputs": {
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-select.out": "9cedc46f02b647bb55dd82aa890ec37d2f1296aebf3075dd486bde86818a02e0",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-history-block-51.out": "4b3861c31e1161ed7ef79c057b38a20033109a861ad1d7c7bb4fa01dbb5d26de",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-history-block-50.out": "90281582267f4b7cb0df8e04355658e5e6970828a0f247f8ebedc9a68e83c44f",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-personal-info-select.out": "3909269f93e10c9433327f3528710cc0caa2cf2c9c6aad65a765faeb8048528a",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-personal-info-history-block-53.out": "273f6f203ce80cfad045c0910a328613d7a9ab08e4c5b9db403d8efef4c8fbbd",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-personal-info-history-block-52.out": "6655c48664f6343bcf404a8383d12360b2d20fc6aafb5e90527551d5cb8012bd",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-signature-select.out": "bdb029094f004f4d132fac756ba9a96f266a4df510f5919ca05295e7d9ba7efc",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-signature-history-block-52.out": "28058fa9ddb4ca727e23367b1a9754a099204aba5222a70cfb898e76e874ccb6",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-signature-history-block-51.out": "90281582267f4b7cb0df8e04355658e5e6970828a0f247f8ebedc9a68e83c44f",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-personal-info-select.out": "b28c8040e81166e9bb3722f2430f9ffefb6be0c201ca1c44b7c16fdbb04ece64",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-personal-info-history-block-54.out": "daf1548815b037494cc1be4aee8f0de79684511ad8d3d12e52a69149716fb8d2",
+      "/tmp/gstbk-live-audit-query-20260512T153825Z/user2-personal-info-history-block-53.out": "6655c48664f6343bcf404a8383d12360b2d20fc6aafb5e90527551d5cb8012bd"
+    }
+  },
+  "notes": [
+    "Markdown（轻量标记语言）摘要继续写入 audit-query-summary.md，JSON（JavaScript Object Notation，数据交换格式）仅提供机器可读索引和判读结果。",
+    "查询输出文件只记录路径和 SHA-256（安全哈希算法 256 位），不把可能较大的链上签名或身份密文 JSON 嵌入摘要。"
+  ]
+}

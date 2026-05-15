@@ -1,0 +1,283 @@
+{
+  "generated_at": "2026-05-12T19:58:17Z",
+  "manifest": {
+    "path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/manifest.json",
+    "sha256": "f607dc5929f0bc293ccab614b5a55f506caaa1f14e00a95ee284d9a3a2828db3",
+    "success": true,
+    "command": "/tmp/gstbk-vm-bootstrap-e2e-report-verify/scripts/run-local/run-e2e.sh --users 2 --nodes 4 --runtime-dir /tmp/gstbk-e2e-vm-smoke --reuse-chain --contract-addresses-from-env --timeout-seconds 300",
+    "runtime_log_dir": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z"
+  },
+  "output_dir": "/tmp/gstbk-live-malicious-open-20260512T153825Z",
+  "markdown_summary": "/tmp/gstbk-live-malicious-open-20260512T153825Z/malicious-open-summary.md",
+  "json_summary": "/tmp/gstbk-live-malicious-open-20260512T153825Z/malicious-open-summary.json",
+  "success": true,
+  "users": [
+    {
+      "manifest_key": "user1",
+      "user_id": "1",
+      "user_name": "e2e20260512T153825Z_user1",
+      "entry_point": "sign_wrong",
+      "role": "恶意演示目标"
+    },
+    {
+      "manifest_key": "user2",
+      "user_id": "2",
+      "user_name": "e2e20260512T153825Z_user2",
+      "entry_point": "sign",
+      "role": "正常对照用户"
+    }
+  ],
+  "contract_addresses": {
+    "personal_info": "0x6546c3571f17858ea45575e7c6457dad03e53dbb",
+    "signature": "0xcceef68c9b4811b32c75df284a1396c7c5509561"
+  },
+  "tx_hashes": {
+    "user1": {
+      "signature": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+      "personal_info": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907"
+    },
+    "user2": {
+      "signature": "0xfceab5a2c4927e908499d4a517f6c5d1fe9c3f62d2bb3c6c9e3e81d19169ff23",
+      "personal_info": "0x9b52c5c553b00196223b36ea70fb9b9c5d583ec1053d24e60ea2b87da4dcacd9"
+    }
+  },
+  "block_numbers": {
+    "user1": {
+      "signature": "51",
+      "personal_info": "53"
+    },
+    "user2": {
+      "signature": "52",
+      "personal_info": "54"
+    }
+  },
+  "query_results": [
+    {
+      "manifest_user": "user1",
+      "user_id": "1",
+      "user_name": "e2e20260512T153825Z_user1",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+      "block_number": "51",
+      "ret": "0",
+      "select_exists": "true",
+      "select_log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/chain/user1-signature-select.out",
+      "select_log_sha256": "9cedc46f02b647bb55dd82aa890ec37d2f1296aebf3075dd486bde86818a02e0",
+      "identity_ciphertext_sha256": null
+    },
+    {
+      "manifest_user": "user1",
+      "user_id": "1",
+      "user_name": "e2e20260512T153825Z_user1",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907",
+      "block_number": "53",
+      "ret": "0",
+      "select_exists": "true",
+      "select_log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/chain/user1-info-select.out",
+      "select_log_sha256": "3909269f93e10c9433327f3528710cc0caa2cf2c9c6aad65a765faeb8048528a",
+      "identity_ciphertext_sha256": "ee45a06a599c74455f614ecfaee121afdf669b921507747e48b547ccf83c2b29"
+    },
+    {
+      "manifest_user": "user2",
+      "user_id": "2",
+      "user_name": "e2e20260512T153825Z_user2",
+      "contract_key": "signature",
+      "contract": "Signature",
+      "tx_hash": "0xfceab5a2c4927e908499d4a517f6c5d1fe9c3f62d2bb3c6c9e3e81d19169ff23",
+      "block_number": "52",
+      "ret": "0",
+      "select_exists": "true",
+      "select_log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/chain/user2-signature-select.out",
+      "select_log_sha256": "bdb029094f004f4d132fac756ba9a96f266a4df510f5919ca05295e7d9ba7efc",
+      "identity_ciphertext_sha256": null
+    },
+    {
+      "manifest_user": "user2",
+      "user_id": "2",
+      "user_name": "e2e20260512T153825Z_user2",
+      "contract_key": "personal_info",
+      "contract": "PersonalInfo",
+      "tx_hash": "0x9b52c5c553b00196223b36ea70fb9b9c5d583ec1053d24e60ea2b87da4dcacd9",
+      "block_number": "54",
+      "ret": "0",
+      "select_exists": "true",
+      "select_log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/chain/user2-info-select.out",
+      "select_log_sha256": "b28c8040e81166e9bb3722f2430f9ffefb6be0c201ca1c44b7c16fdbb04ece64",
+      "identity_ciphertext_sha256": "5d5085dbf9bf92c65660b7419c86e19ecab490acacec19ba762301300c01fa3d"
+    }
+  ],
+  "verify_open_status": {
+    "global_open_observed": true,
+    "targets": [
+      {
+        "manifest_key": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T153825Z_user1",
+        "entry_point": "sign_wrong",
+        "role": "恶意演示目标"
+      },
+      {
+        "manifest_key": "user2",
+        "user_id": "2",
+        "user_name": "e2e20260512T153825Z_user2",
+        "entry_point": "sign",
+        "role": "正常对照用户"
+      }
+    ],
+    "role_logs": [
+      {
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T153825Z_user1",
+        "node": "node1",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node1.out",
+        "log_sha256": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "失败，触发 Open",
+        "verify_status": "failed_triggers_open",
+        "open": "完成",
+        "open_status": "completed",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": true,
+        "reveal": "未捕获信息级揭示行；本次真实日志保留 Verify 失败和 Open 完成"
+      },
+      {
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T153825Z_user1",
+        "node": "node2",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node2.out",
+        "log_sha256": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "失败，触发 Open",
+        "verify_status": "failed_triggers_open",
+        "open": "完成",
+        "open_status": "completed",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": true,
+        "reveal": "未捕获信息级揭示行；本次真实日志保留 Verify 失败和 Open 完成"
+      },
+      {
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T153825Z_user1",
+        "node": "node3",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node3.out",
+        "log_sha256": "5d0df5eca6e5d27e6c3967bfab14dfcb3635aef7e9cb2125d258e4ab142065d2",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "失败，触发 Open",
+        "verify_status": "failed_triggers_open",
+        "open": "完成",
+        "open_status": "completed",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": true,
+        "reveal": "未捕获信息级揭示行；本次真实日志保留 Verify 失败和 Open 完成"
+      },
+      {
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T153825Z_user1",
+        "node": "node4",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node4.out",
+        "log_sha256": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "失败，触发 Open",
+        "verify_status": "failed_triggers_open",
+        "open": "完成",
+        "open_status": "completed",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": true,
+        "reveal": "未捕获信息级揭示行；本次真实日志保留 Verify 失败和 Open 完成"
+      },
+      {
+        "manifest_user": "user2",
+        "user_id": "2",
+        "user_name": "e2e20260512T153825Z_user2",
+        "node": "node1",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node1.out",
+        "log_sha256": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "通过",
+        "verify_status": "passed",
+        "open": "全局完成，非本用户触发",
+        "open_status": "global_completed_not_triggered_by_user",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": false,
+        "reveal": "-"
+      },
+      {
+        "manifest_user": "user2",
+        "user_id": "2",
+        "user_name": "e2e20260512T153825Z_user2",
+        "node": "node2",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node2.out",
+        "log_sha256": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "通过",
+        "verify_status": "passed",
+        "open": "全局完成，非本用户触发",
+        "open_status": "global_completed_not_triggered_by_user",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": false,
+        "reveal": "-"
+      },
+      {
+        "manifest_user": "user2",
+        "user_id": "2",
+        "user_name": "e2e20260512T153825Z_user2",
+        "node": "node3",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node3.out",
+        "log_sha256": "5d0df5eca6e5d27e6c3967bfab14dfcb3635aef7e9cb2125d258e4ab142065d2",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "通过",
+        "verify_status": "passed",
+        "open": "全局完成，非本用户触发",
+        "open_status": "global_completed_not_triggered_by_user",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": false,
+        "reveal": "-"
+      },
+      {
+        "manifest_user": "user2",
+        "user_id": "2",
+        "user_name": "e2e20260512T153825Z_user2",
+        "node": "node4",
+        "log_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node4.out",
+        "log_sha256": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+        "signature_query": "exists true",
+        "signature_query_status": "exists_true",
+        "verify": "通过",
+        "verify_status": "passed",
+        "open": "全局完成，非本用户触发",
+        "open_status": "global_completed_not_triggered_by_user",
+        "raw_open_status": "completed",
+        "open_triggered_by_user": false,
+        "reveal": "-"
+      }
+    ]
+  },
+  "log_sha256": {
+    "markdown_summary": "fac6c7afd63489e00d02afe9360da30e000bc5b65ea9126c218aea99211077b5",
+    "role_logs": {
+      "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node1.out": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+      "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node2.out": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16",
+      "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node3.out": "5d0df5eca6e5d27e6c3967bfab14dfcb3635aef7e9cb2125d258e4ab142065d2",
+      "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/node4.out": "50a6cbf2772f5323ef766467da0206ccb388268f3a848b695382ce8e83595a16"
+    }
+  },
+  "notes": [
+    "Markdown（轻量标记语言）摘要继续写入 malicious-open-summary.md，JSON（JavaScript Object Notation，数据交换格式）用于 Web（网页）/API（Application Programming Interface，应用程序接口）展示和 AI（Artificial Intelligence，人工智能）安全审计材料复用。",
+    "user1 是 sign_wrong 恶意演示目标；user2 是 sign 正常对照用户。",
+    "当用户 Verify（验证）通过但同一轮日志存在 Open（揭示）阶段时，open_status 记录为 global_completed_not_triggered_by_user 或 global_started_not_triggered_by_user，表示全局完成/开始且非本用户触发。"
+  ]
+}

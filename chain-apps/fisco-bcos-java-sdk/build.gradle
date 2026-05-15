@@ -1,0 +1,51 @@
+plugins {
+    id "java"
+}
+
+group = "org.gstbk"
+version = "0.1.0"
+
+def fiscoBcosJavaSdkVersion = "3.6.0"
+def fiscoConsoleDir = providers.environmentVariable("FISCO_CONSOLE_DIR").orNull
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    if (fiscoConsoleDir) {
+        implementation fileTree(dir: "${fiscoConsoleDir}/lib", include: ["*.jar"])
+    } else {
+        implementation "org.fisco-bcos.java-sdk:fisco-bcos-java-sdk:${fiscoBcosJavaSdkVersion}"
+        implementation "com.google.code.gson:gson:2.10.1"
+        runtimeOnly "org.slf4j:slf4j-simple:2.0.13"
+    }
+}
+
+tasks.register("personalInfo", JavaExec) {
+    group = "fisco-bcos"
+    description = "Run the PersonalInfo contract client."
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "org.gstbk.chain.PersonalInfoClient"
+}
+
+tasks.register("signature", JavaExec) {
+    group = "fisco-bcos"
+    description = "Run the Signature contract client."
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "org.gstbk.chain.SignatureClient"
+}
+
+tasks.register("generateContractWrappers", Exec) {
+    group = "fisco-bcos"
+    description = "Generate PersonalInfo and Signature Java wrappers with the FISCO BCOS console toolchain."
+    commandLine "bash",
+        layout.projectDirectory.file("scripts/generate-contract-wrappers.sh").asFile.absolutePath,
+        layout.projectDirectory.dir("../../contracts/fisco-bcos").asFile.absolutePath
+}

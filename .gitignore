@@ -1,0 +1,109 @@
+# Local agent/editor state.
+.codex/
+.idea/
+.vscode/
+
+# OS/editor noise.
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Rust build artifacts.
+target/
+**/target/
+Cargo.lock.bak
+
+# Java/Gradle build artifacts and local credentials.
+.gradle/
+build/
+**/build/
+gradle.properties
+chain-apps/fisco-bcos-java-sdk/.gradle/
+chain-apps/fisco-bcos-java-sdk/out/
+
+# Runtime logs and scratch files.
+*.log
+*.out
+*.err
+*.pid
+*.tmp
+*.bak
+logs/
+runtime/
+runtime-config/
+runtime-logs/
+runtime-state/
+state/
+
+# Generated audit-console refresh artifacts.
+docs/evidence/console-current-*.json
+docs/evidence/console-current-*.md
+
+# Local environment files.
+.env
+.env.*
+.env.fisco.generated
+.env.fisco.generated.*
+!.env.example
+!.env.*.example
+
+# Archives and source packages can contain raw inputs or generated secrets.
+*.rar
+*.zip
+*.7z
+archive/raw-inputs/
+archive/generated/
+archive/source-packages/
+
+# Archived third-party dependency snapshots.
+archive/**/depend/
+
+# Generated local cryptographic material and protocol state.
+cl_keypair.json
+**/cl_keypair.json
+**/keygen.json
+**/wallet.json
+**/account.json
+**/accounts.json
+**/wallet/
+**/wallets/
+**/keystore/
+**/keystores/
+**/private_key*
+**/private-key*
+**/secret*
+!docs/operations/secrets-and-config.md
+crates/intergration_test/src/**/info/
+crates/intergration_test/src/**/logs/
+crates/intergration_test/src/**/state/
+
+# Chain certificates, private keys, wallets, and real local chain config.
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.csr
+*.srl
+chain-apps/fisco-bcos-java-sdk/conf/config.toml
+chain-apps/fisco-bcos-java-sdk/conf/*.toml
+!chain-apps/fisco-bcos-java-sdk/conf/*.toml.example
+!chain-apps/fisco-bcos-java-sdk/conf/README.md
+chain-apps/fisco-bcos-java-sdk/conf/accounts/
+chain-apps/fisco-bcos-java-sdk/conf/cert/
+chain-apps/fisco-bcos-java-sdk/conf/certs/
+chain-apps/fisco-bcos-java-sdk/conf/ca/
+chain-apps/fisco-bcos-java-sdk/conf/sdk/
+chain-apps/fisco-bcos-java-sdk/conf/nodes/
+chain-apps/fisco-bcos-java-sdk/conf/account/
+chain-apps/fisco-bcos-java-sdk/conf/crypto/
+chain-apps/fisco-bcos-java-sdk/conf/wallet/
+chain-apps/fisco-bcos-java-sdk/conf/wallets/
+chain-apps/fisco-bcos-java-sdk/conf/keystore/
+chain-apps/fisco-bcos-java-sdk/conf/keystores/
+chain-apps/fisco-bcos-java-sdk/conf/private/
+chain-apps/fisco-bcos-java-sdk/conf/secrets/

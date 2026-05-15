@@ -1,0 +1,286 @@
+{
+  "schema_version": "gstbk.evidence.events.v1",
+  "generated_at": "2026-05-13T00:00:00Z",
+  "source_summaries": [
+    {
+      "source_type": "audit_query_summary",
+      "path": "docs/evidence/audit-query-live-vm-20260512T153825Z.json",
+      "sha256": "3ffe453e5596845237ad6c7f09bdaa5dc2e9ec50bfbb8fbdbb07d676fb7b56ee",
+      "preserved_fields": [
+        "generated_at",
+        "manifest",
+        "output_dir",
+        "success",
+        "users",
+        "contract_addresses",
+        "tx_hashes",
+        "block_numbers",
+        "query_results",
+        "verify_open_status",
+        "log_sha256",
+        "notes"
+      ]
+    },
+    {
+      "source_type": "malicious_open_summary",
+      "path": "docs/evidence/malicious-open-live-vm-20260512T153825Z.json",
+      "sha256": "94dd1f43ab3a0d0dba6c122ac3f4a50ab149cc6625b2b117483babcfeb8c962c",
+      "preserved_fields": [
+        "generated_at",
+        "manifest",
+        "output_dir",
+        "success",
+        "users",
+        "contract_addresses",
+        "tx_hashes",
+        "block_numbers",
+        "query_results",
+        "verify_open_status",
+        "log_sha256",
+        "notes"
+      ]
+    },
+    {
+      "source_type": "failure_scenarios_doc",
+      "path": "docs/evidence/failure-scenarios.md",
+      "sha256": null,
+      "preserved_fields": []
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt-20260512T153825Z-audit-user1-signature",
+      "event_type": "audit_query",
+      "timestamp": "2026-05-12T19:56:45Z",
+      "source": {
+        "kind": "script_summary",
+        "name": "run-audit-query-demo.sh",
+        "summary_path": "docs/evidence/audit-query-live-vm-20260512T153825Z.json",
+        "summary_sha256": "3ffe453e5596845237ad6c7f09bdaa5dc2e9ec50bfbb8fbdbb07d676fb7b56ee",
+        "manifest_path": "/tmp/gstbk-e2e-vm-smoke/runtime-logs/20260512T153825Z/manifest.json",
+        "manifest_sha256": "f607dc5929f0bc293ccab614b5a55f506caaa1f14e00a95ee284d9a3a2828db3"
+      },
+      "actor": {
+        "role": "auditor",
+        "id": "readonly-audit-demo",
+        "name": "只读审计查询脚本",
+        "nodes": []
+      },
+      "target": {
+        "kind": "chain_record",
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T153825Z_user1",
+        "contract_name": "Signature",
+        "operation": "select_history",
+        "failure_code": null,
+        "reveal_fields": null
+      },
+      "chain": {
+        "platform": "FISCO BCOS",
+        "group": "group0",
+        "contract_key": "signature",
+        "contract_name": "Signature",
+        "contract_address": "0xcceef68c9b4811b32c75df284a1396c7c5509561",
+        "tx_hash": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+        "block_number": "51",
+        "queries": [
+          {
+            "query": "select",
+            "status": "ok",
+            "exists": true,
+            "ret": null,
+            "value_present": true,
+            "output_ref": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-select.out"
+          },
+          {
+            "query": "history@block",
+            "status": "ok",
+            "block_number": "51",
+            "exists": null,
+            "ret": "0",
+            "value_present": true,
+            "output_ref": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-history-block-51.out"
+          },
+          {
+            "query": "history@previous-block",
+            "status": "ok",
+            "block_number": "50",
+            "exists": null,
+            "ret": "-2",
+            "value_present": false,
+            "output_ref": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-history-block-50.out"
+          }
+        ],
+        "records": [],
+        "diagnostic": null
+      },
+      "status": "confirmed",
+      "evidence_refs": [
+        {
+          "kind": "json_summary",
+          "path": "docs/evidence/audit-query-live-vm-20260512T153825Z.json",
+          "sha256": "3ffe453e5596845237ad6c7f09bdaa5dc2e9ec50bfbb8fbdbb07d676fb7b56ee",
+          "description": "只读审计查询 JSON 摘要，保留查询结果、TX 哈希和区块高度。"
+        },
+        {
+          "kind": "markdown_summary",
+          "path": "docs/evidence/audit-query-live-vm-20260512T153825Z.md",
+          "sha256": null,
+          "description": "只读审计查询 Markdown 摘要。"
+        },
+        {
+          "kind": "query_output",
+          "path": "/tmp/gstbk-live-audit-query-20260512T153825Z/user1-signature-select.out",
+          "sha256": "9cedc46f02b647bb55dd82aa890ec37d2f1296aebf3075dd486bde86818a02e0",
+          "description": "Signature 当前 select 查询输出。"
+        }
+      ],
+      "risk_level": "low",
+      "summary": "user1 的 Signature 记录可通过当前查询和登记区块历史查询复核，登记前一区块不可追溯到该记录。"
+    },
+    {
+      "event_id": "evt-20260512T200205Z-malicious-open-user1",
+      "event_type": "malicious_open",
+      "timestamp": "2026-05-13T04:00:00Z",
+      "source": {
+        "kind": "script_summary",
+        "name": "run-malicious-open-demo.sh",
+        "summary_path": "docs/evidence/malicious-open-live-vm-20260512T200205Z.md",
+        "summary_sha256": null,
+        "manifest_path": "/tmp/gstbk-open-reveal-log-capture-runtime/runtime-logs/20260512T200205Z/manifest.json",
+        "manifest_sha256": null
+      },
+      "actor": {
+        "role": "node_committee",
+        "id": "gstbk-4-node-open-committee",
+        "name": "4 个 Node 协同揭示",
+        "nodes": [
+          "node1",
+          "node2",
+          "node3",
+          "node4"
+        ]
+      },
+      "target": {
+        "kind": "user",
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "e2e20260512T200205Z_user1",
+        "contract_name": null,
+        "operation": "verify_open",
+        "failure_code": null,
+        "reveal_fields": {
+          "user_id": "1",
+          "user_name": "e2e20260512T200205Z_user1",
+          "address": "127.0.0.1:60001"
+        }
+      },
+      "chain": {
+        "platform": "FISCO BCOS",
+        "group": "group0",
+        "contract_key": null,
+        "contract_name": null,
+        "contract_address": null,
+        "tx_hash": null,
+        "block_number": null,
+        "queries": [],
+        "records": [
+          {
+            "contract_key": "signature",
+            "contract_name": "Signature",
+            "contract_address": "0xcceef68c9b4811b32c75df284a1396c7c5509561",
+            "tx_hash": "0x6241dbee06f3de44c1f8090549e7e835ba8c7d7bf7c529251370e98da2396edb",
+            "block_number": "51",
+            "select_exists": true
+          },
+          {
+            "contract_key": "personal_info",
+            "contract_name": "PersonalInfo",
+            "contract_address": "0x6546c3571f17858ea45575e7c6457dad03e53dbb",
+            "tx_hash": "0xfc5613668bf381f3bd0d9b939688a909148ceddf612906c9f1a23d9ac6c6c907",
+            "block_number": "53",
+            "select_exists": true,
+            "identity_ciphertext_sha256": "ee45a06a599c74455f614ecfaee121afdf669b921507747e48b547ccf83c2b29"
+          }
+        ],
+        "diagnostic": "user1 通过 sign_wrong 产生异常签名，Node 链上查回 Signature 后 Verify 失败并进入 Open。"
+      },
+      "status": "open_completed",
+      "evidence_refs": [
+        {
+          "kind": "markdown_summary",
+          "path": "docs/evidence/malicious-open-live-vm-20260512T200205Z.md",
+          "sha256": null,
+          "description": "真实 VM 重跑后捕获 user_id、user_name 和地址揭示字段的摘要。"
+        },
+        {
+          "kind": "json_summary",
+          "path": "docs/evidence/malicious-open-live-vm-20260512T153825Z.json",
+          "sha256": "94dd1f43ab3a0d0dba6c122ac3f4a50ab149cc6625b2b117483babcfeb8c962c",
+          "description": "恶意揭示 JSON 摘要，保留 TX、区块、Verify/Open 判读和 Node 日志索引。"
+        },
+        {
+          "kind": "role_log",
+          "path": "/tmp/gstbk-open-reveal-log-capture-runtime/runtime-logs/20260512T200205Z/node1.log4rs.log",
+          "sha256": null,
+          "description": "Node log4rs 文件日志中的揭示字段来源。"
+        }
+      ],
+      "risk_level": "high",
+      "summary": "user1 的异常签名触发 Verify 失败和 Open 完成，结构化揭示字段定位到协议用户、测试用户名和地址。"
+    },
+    {
+      "event_id": "evt-failure-config-contract-address-missing",
+      "event_type": "failure_scenario",
+      "timestamp": "2026-05-13T00:00:00Z",
+      "source": {
+        "kind": "manual_doc",
+        "name": "failure-scenarios.md",
+        "summary_path": "docs/evidence/failure-scenarios.md",
+        "summary_sha256": null,
+        "manifest_path": null,
+        "manifest_sha256": null
+      },
+      "actor": {
+        "role": "operator",
+        "id": "failure-fixture-operator",
+        "name": "失败场景夹具操作者",
+        "nodes": []
+      },
+      "target": {
+        "kind": "configuration",
+        "manifest_user": null,
+        "user_id": null,
+        "user_name": null,
+        "contract_name": null,
+        "operation": "doctor_check",
+        "failure_code": "CONFIG_CONTRACT_ADDRESS_MISSING",
+        "reveal_fields": null
+      },
+      "chain": {
+        "platform": "FISCO BCOS",
+        "group": "group0",
+        "contract_key": null,
+        "contract_name": null,
+        "contract_address": null,
+        "tx_hash": null,
+        "block_number": null,
+        "queries": [],
+        "records": [],
+        "diagnostic": "合约地址环境变量缺失，doctor.sh 或 run-e2e.sh 在链写入前置校验阶段失败。"
+      },
+      "status": "expected_failure",
+      "evidence_refs": [
+        {
+          "kind": "doc",
+          "path": "docs/evidence/failure-scenarios.md",
+          "sha256": null,
+          "description": "失败场景库中的缺合约地址触发命令、错误分类和恢复建议。"
+        }
+      ],
+      "risk_level": "medium",
+      "summary": "缺少 PersonalInfo 或 Signature 合约地址时，健康检查应在链调用前失败并给出 CONFIG_CONTRACT_ADDRESS_MISSING 分类。"
+    }
+  ]
+}

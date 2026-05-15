@@ -1,0 +1,19 @@
+.gradle/
+build/
+
+# FISCO BCOS certificates and local account keys.
+conf/config.toml
+conf/contract-addresses.env
+conf/*.crt
+conf/*.key
+conf/*.pem
+conf/accounts/
+conf/sdk/
+conf/wallet/
+conf/wallets/
+conf/keystore/
+conf/keystores/
+conf/private/
+conf/secrets/
+!conf/README.md
+!conf/config.toml.example

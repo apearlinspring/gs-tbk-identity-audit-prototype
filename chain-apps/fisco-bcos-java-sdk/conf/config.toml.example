@@ -1,0 +1,26 @@
+[cryptoMaterial]
+# Copy SDK certificates from the node sdk directory into conf/sdk before running.
+certPath = "conf/sdk"
+disableSsl = "false"
+useSMCrypto = "false"
+
+# These default to files under certPath when omitted:
+# caCert = "conf/sdk/ca.crt"
+# sslCert = "conf/sdk/sdk.crt"
+# sslKey = "conf/sdk/sdk.key"
+
+[network]
+messageTimeout = "10000"
+defaultGroup = "group0"
+# Replace with reachable FISCO BCOS RPC endpoints.
+peers = ["127.0.0.1:20200", "127.0.0.1:20201"]
+
+[account]
+# Do not commit real account private keys.
+keyStoreDir = "conf/accounts"
+accountFileFormat = "pem"
+# accountFilePath = "conf/accounts/account.pem"
+# password = ""
+
+[threadPool]
+# threadPoolSize = "16"
