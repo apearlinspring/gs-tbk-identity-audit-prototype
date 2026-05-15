@@ -15,3 +15,7 @@
 *.jpg binary
 *.jpeg binary
 *.gif binary
+
+# Vendored native dependency sources; keep them in the repo for reproducible
+# builds, but exclude them from GitHub Linguist language statistics.
+crates/class_group/depend/pari/** linguist-vendored=true
