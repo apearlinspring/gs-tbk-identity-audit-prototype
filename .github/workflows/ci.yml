@@ -1,0 +1,122 @@
+name: Baseline CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rust:
+    name: Rust format and build
+    runs-on: ubuntu-latest
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential pkg-config libgmp-dev pari-gp libpari-dev bison clang libclang-dev
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+
+      - name: Build workspace
+        run: LD_LIBRARY_PATH="$PWD/crates/cl_encrypt:${LD_LIBRARY_PATH:-}" cargo build --workspace --locked
+
+  java:
+    name: Java Gradle build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: chain-apps/fisco-bcos-java-sdk
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "11"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.10.2"
+
+      - name: Ensure real chain config is absent
+        run: |
+          test ! -f conf/config.toml
+          test ! -d conf/sdk
+
+      - name: Build Java SDK skeleton
+        run: gradle --no-daemon build
+
+  audit-console:
+    name: Audit console checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check apps/audit-console/server.mjs
+          node --check apps/audit-console/public/app.js
+
+      - name: Run audit console check
+        run: npm run check --prefix apps/audit-console
+
+  scripts:
+    name: Shell script checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
+      - name: Check Bash syntax
+        run: |
+          for script in scripts/run-local/*.sh scripts/fisco/*.sh scripts/ci/*.sh; do
+            bash -n "$script"
+          done
+
+      - name: Run ShellCheck
+        run: shellcheck scripts/run-local/*.sh scripts/fisco/*.sh scripts/ci/*.sh
+
+  solidity:
+    name: Solidity and wrapper checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check contract sources
+        run: bash scripts/ci/check-solidity-contracts.sh
+
+      - name: Check contract-wrapper consistency
+        run: bash scripts/ci/check-contract-wrapper-consistency.sh

@@ -1,0 +1,13 @@
+{
+  "name": "gstbk-audit-console",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node server.mjs --check"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GS-TBK 身份监管审计台</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">工程原型演示</p>
+        <h1>GS-TBK 身份监管审计台</h1>
+      </div>
+      <div class="top-actions">
+        <span id="healthBadge" class="badge muted">加载中</span>
+        <button id="refreshBtn" type="button" title="刷新当前审计摘要">刷新</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>演示说明</h2>
+          <ul class="policy-list">
+            <li>展示已脱敏的身份监管流程证据</li>
+            <li>覆盖身份登记、链上查询、验证和揭示</li>
+            <li>当前站点使用审计证据快照，不直连链节点</li>
+            <li>页面不展示证书、私钥、节点配置或原始日志</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2>筛选</h2>
+          <label>
+            关键词
+            <input id="searchInput" type="search" placeholder="用户、TX、区块、状态">
+          </label>
+          <label>
+            事件类型
+            <select id="typeFilter">
+              <option value="all">全部</option>
+              <option value="audit_query">审计查询</option>
+              <option value="malicious_open">异常揭示</option>
+              <option value="failure_scenario">失败场景</option>
+            </select>
+          </label>
+          <label>
+            批次
+            <select id="sourceFilter">
+              <option value="all">全部批次</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>证据批次</h2>
+          <div id="sourceList" class="source-list"></div>
+        </section>
+      </aside>
+
+      <section class="main-panel">
+        <section id="statusBanner" class="notice">正在加载审计摘要...</section>
+        <section id="metrics" class="metrics" aria-label="审计摘要指标"></section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>结构化事件</h2>
+            <span id="eventCount" class="count"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>类型</th>
+                  <th>用户</th>
+                  <th>合约</th>
+                  <th>交易</th>
+                  <th>区块</th>
+                  <th>状态</th>
+                  <th>摘要</th>
+                </tr>
+              </thead>
+              <tbody id="eventsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="grid-two">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>用户与合约</h2>
+              <span id="userContractCount" class="count"></span>
+            </div>
+            <div id="userContractList" class="stack"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>揭示字段</h2>
+              <span id="revealCount" class="count"></span>
+            </div>
+            <div id="revealList" class="stack"></div>
+          </section>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>交易与区块</h2>
+            <span id="txCount" class="count"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>用户</th>
+                  <th>合约</th>
+                  <th>区块</th>
+                  <th>交易哈希</th>
+                  <th>链上记录</th>
+                  <th>证据批次</th>
+                </tr>
+              </thead>
+              <tbody id="txBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>审计查询</h2>
+            <span id="queryCount" class="count"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>用户</th>
+                  <th>合约</th>
+                  <th>查询</th>
+                  <th>区块</th>
+                  <th>是否存在</th>
+                  <th>返回码</th>
+                  <th>结果</th>
+                </tr>
+              </thead>
+              <tbody id="queryBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="grid-two">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>验证与揭示</h2>
+              <span id="verifyCount" class="count"></span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>用户</th>
+                    <th>节点</th>
+                    <th>验证</th>
+                    <th>揭示</th>
+                    <th>触发</th>
+                  </tr>
+                </thead>
+                <tbody id="verifyBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>异常场景</h2>
+              <span id="failureCount" class="count"></span>
+            </div>
+            <div id="failureList" class="stack"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

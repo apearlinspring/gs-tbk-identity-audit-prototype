@@ -1,0 +1,217 @@
+{
+  "schema_version": "gstbk.evidence.events.v1",
+  "generated_at": "2026-05-13T00:00:00Z",
+  "source_summaries": [
+    {
+      "source_type": "events_bundle",
+      "path": "examples/evidence/events.sample.json",
+      "sha256": null,
+      "preserved_fields": [
+        "events"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt-sample-audit-user1-signature",
+      "event_type": "audit_query",
+      "timestamp": "2026-05-13T00:00:00Z",
+      "source": {
+        "kind": "sample_fixture",
+        "name": "events.sample.json",
+        "summary_path": "examples/evidence/events.sample.json",
+        "summary_sha256": null,
+        "manifest_path": "/tmp/gstbk-e2e-smoke/runtime-logs/sample/manifest.json",
+        "manifest_sha256": null
+      },
+      "actor": {
+        "role": "auditor",
+        "id": "readonly-audit-demo",
+        "name": "只读审计查询脚本",
+        "nodes": []
+      },
+      "target": {
+        "kind": "chain_record",
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "sample_user1",
+        "contract_name": "Signature",
+        "operation": "select_history",
+        "failure_code": null,
+        "reveal_fields": null
+      },
+      "chain": {
+        "platform": "FISCO BCOS",
+        "group": "group0",
+        "contract_key": "signature",
+        "contract_name": "Signature",
+        "contract_address": "0x1111111111111111111111111111111111111111",
+        "tx_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "block_number": "100",
+        "queries": [
+          {
+            "query": "select",
+            "status": "ok",
+            "exists": true,
+            "ret": null,
+            "value_present": true,
+            "output_ref": "/tmp/gstbk-audit-query-summary/user1-signature-select.out"
+          },
+          {
+            "query": "history@previous-block",
+            "status": "ok",
+            "block_number": "99",
+            "exists": null,
+            "ret": "-2",
+            "value_present": false,
+            "output_ref": "/tmp/gstbk-audit-query-summary/user1-signature-history-block-99.out"
+          }
+        ],
+        "records": [],
+        "diagnostic": null
+      },
+      "status": "confirmed",
+      "evidence_refs": [
+        {
+          "kind": "sample_json",
+          "path": "examples/evidence/events.sample.json",
+          "sha256": null,
+          "description": "脱敏审计事件样例。"
+        }
+      ],
+      "risk_level": "low",
+      "summary": "user1 的 Signature 样例记录可通过当前查询和登记区块历史查询复核。"
+    },
+    {
+      "event_id": "evt-sample-malicious-open-user1",
+      "event_type": "malicious_open",
+      "timestamp": "2026-05-13T00:05:00Z",
+      "source": {
+        "kind": "sample_fixture",
+        "name": "events.sample.json",
+        "summary_path": "examples/evidence/events.sample.json",
+        "summary_sha256": null,
+        "manifest_path": "/tmp/gstbk-e2e-smoke/runtime-logs/sample/manifest.json",
+        "manifest_sha256": null
+      },
+      "actor": {
+        "role": "node_committee",
+        "id": "gstbk-4-node-open-committee",
+        "name": "4 个 Node 协同揭示",
+        "nodes": [
+          "node1",
+          "node2",
+          "node3",
+          "node4"
+        ]
+      },
+      "target": {
+        "kind": "user",
+        "manifest_user": "user1",
+        "user_id": "1",
+        "user_name": "sample_user1",
+        "contract_name": null,
+        "operation": "verify_open",
+        "failure_code": null,
+        "reveal_fields": {
+          "user_id": "1",
+          "user_name": "sample_user1",
+          "address": "127.0.0.1:60001"
+        }
+      },
+      "chain": {
+        "platform": "FISCO BCOS",
+        "group": "group0",
+        "contract_key": null,
+        "contract_name": null,
+        "contract_address": null,
+        "tx_hash": null,
+        "block_number": null,
+        "queries": [],
+        "records": [
+          {
+            "contract_key": "signature",
+            "contract_name": "Signature",
+            "contract_address": "0x1111111111111111111111111111111111111111",
+            "tx_hash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "block_number": "100",
+            "select_exists": true
+          },
+          {
+            "contract_key": "personal_info",
+            "contract_name": "PersonalInfo",
+            "contract_address": "0x2222222222222222222222222222222222222222",
+            "tx_hash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "block_number": "101",
+            "select_exists": true,
+            "identity_ciphertext_sha256": "sample-identity-ciphertext-sha256"
+          }
+        ],
+        "diagnostic": "user1 通过 sign_wrong 产生异常签名，Node 链上查回 Signature 后 Verify 失败并进入 Open。"
+      },
+      "status": "open_completed",
+      "evidence_refs": [
+        {
+          "kind": "sample_json",
+          "path": "examples/evidence/events.sample.json",
+          "sha256": null,
+          "description": "脱敏恶意揭示事件样例。"
+        }
+      ],
+      "risk_level": "high",
+      "summary": "user1 的异常签名触发 Verify 失败和 Open 完成，结构化揭示字段定位到协议用户和地址。"
+    },
+    {
+      "event_id": "evt-sample-failure-contract-address-missing",
+      "event_type": "failure_scenario",
+      "timestamp": "2026-05-13T00:10:00Z",
+      "source": {
+        "kind": "manual_doc",
+        "name": "failure-scenarios.md",
+        "summary_path": "docs/evidence/failure-scenarios.md",
+        "summary_sha256": null,
+        "manifest_path": null,
+        "manifest_sha256": null
+      },
+      "actor": {
+        "role": "operator",
+        "id": "failure-fixture-operator",
+        "name": "失败场景夹具操作者",
+        "nodes": []
+      },
+      "target": {
+        "kind": "configuration",
+        "manifest_user": null,
+        "user_id": null,
+        "user_name": null,
+        "contract_name": null,
+        "operation": "doctor_check",
+        "failure_code": "CONFIG_CONTRACT_ADDRESS_MISSING",
+        "reveal_fields": null
+      },
+      "chain": {
+        "platform": "FISCO BCOS",
+        "group": "group0",
+        "contract_key": null,
+        "contract_name": null,
+        "contract_address": null,
+        "tx_hash": null,
+        "block_number": null,
+        "queries": [],
+        "records": [],
+        "diagnostic": "合约地址环境变量缺失，doctor.sh 或 run-e2e.sh 在链写入前置校验阶段失败。"
+      },
+      "status": "expected_failure",
+      "evidence_refs": [
+        {
+          "kind": "doc",
+          "path": "docs/evidence/failure-scenarios.md",
+          "sha256": null,
+          "description": "失败场景库中的缺合约地址触发命令、错误分类和恢复建议。"
+        }
+      ],
+      "risk_level": "medium",
+      "summary": "缺少 PersonalInfo 或 Signature 合约地址时，健康检查应在链调用前失败。"
+    }
+  ]
+}
